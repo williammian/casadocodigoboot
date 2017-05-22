@@ -15,7 +15,7 @@ public interface ProductDAO extends Repository<Product, Integer> {
 	@Query("select distinct(p) from Product p join fetch p.prices")
 	public List<Product> list();
 	
-	@Query("select sum(price.value) from Product p join	p.prices price where price.bookType =:bookType")
+	@Query("select sum(price.value) from Product p join	p.prices price where price.bookType =:book")
 	public BigDecimal sumPricesPerType(@Param("book")BookType book);
 	
 }
